@@ -43,7 +43,7 @@ int jobSequencing(int deadline[], int profit[], int n, int sequence[]) {
 }
 
 int main() {
-    int n; // Number of jobs
+    int n,i; // Number of jobs
     int deadline[100] ; // Deadlines
     int profit[100]; // Profits
     int sequence[100]; // Array to store job sequence
@@ -79,3 +79,23 @@ int main() {
     getch();
     return 0;
 }
+
+//OUTPUT
+/*
+
+Enter the number of jobs: 5
+Enter the deadlines for each job:
+Deadline for job 1: 2
+Deadline for job 2: 1
+Deadline for job 3: 3
+Deadline for job 4: 2
+Deadline for job 5: 1
+Enter the profits for each job:
+Profit for job 1: 100
+Profit for job 2: 50
+Profit for job 3: 120
+Profit for job 4: 200
+Profit for job 5: 150
+The total profit is 470
+Job sequence: 4 3 5
+*/
