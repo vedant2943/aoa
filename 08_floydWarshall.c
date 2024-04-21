@@ -1,3 +1,6 @@
+//In case of an error in the first code, try the second or third code.
+------------------------------------------------------------------------------------------------------------------
+
 #include <stdio.h>
 
 #define V 4 // Number of vertices in the graph
