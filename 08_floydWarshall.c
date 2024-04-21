@@ -112,3 +112,76 @@ int main() {
     floydWarshall(graph);
     return 0;
 }
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//For User Input
+    #include <stdio.h>
+
+#define INF 99999
+#define V 4
+
+void floydWarshall(int graph[][V], int vertices) {
+    int dist[V][V];
+    int i, j, k;
+
+    // Initialize the distance matrix with the given graph
+    for (i = 0; i < vertices; i++)
+        for (j = 0; j < vertices; j++)
+            dist[i][j] = graph[i][j];
+
+    // Main algorithm loop
+    for (k = 0; k < vertices; k++) {
+        for (i = 0; i < vertices; i++) {
+            for (j = 0; j < vertices; j++) {
+                if (dist[i][k] + dist[k][j] < dist[i][j])
+                    dist[i][j] = dist[i][k] + dist[k][j];
+            }
+        }
+    }
+
+    // Print the shortest distances
+    printf("Shortest distances between every pair of vertices:\n");
+    for (i = 0; i < vertices; i++) {
+        for (j = 0; j < vertices; j++) {
+            if (dist[i][j] == INF)
+                printf("INF ");
+            else
+                printf("%d ", dist[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int vertices;
+    printf("Enter the number of vertices in the graph: ");
+    scanf("%d", &vertices);
+
+    int graph[V][V];
+    printf("Enter the adjacency matrix of the graph:\n");
+    for (int i = 0; i < vertices; i++) {
+        for (int j = 0; j < vertices; j++) {
+            scanf("%d", &graph[i][j]);
+            if (graph[i][j] == 0 && i != j)
+                graph[i][j] = INF;
+        }
+    }
+
+    floydWarshall(graph, vertices);
+    return 0;
+}
+
+
+
+//output :
+// Enter the number of vertices in the graph: 3
+// Enter the adjacency matrix of the graph:
+// 0  4   11
+// 6  0   2
+// 3  INF  0
+// Shortest distances between every pair of vertices:
+// 0 4 6 
+// 5 0 2 
+// 3 7 0
