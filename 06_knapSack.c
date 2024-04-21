@@ -79,7 +79,7 @@ void predefinedKnapsack(int n, float profit[], float weight[], int W)
 
 int main()
 {
-    int n,w; // Number of items
+    int n,W; // Number of items
     float profit[100];// Profits
     float weight[100]; // Weights
     clrscr();
