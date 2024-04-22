@@ -43,3 +43,20 @@ int main()
 }
 
 
+algorithm
+ Selection-Sort (A)
+fori← 1 to n-1 do
+   min j ←i;
+   min x ← A[i]
+   for j ←i + 1 to n do
+      if A[j] < min x then
+         min j ← j
+         min x ← A[j]
+   A[min j] ← A [i]
+   A[i] ← min x
+
+Time Complexity: The time complexity of Selection Sort is O(N2) as there are two nested loops:
+
+One loop to select an element of Array one by one = O(N)
+Another loop to compare that element with every other Array element = O(N)
+Therefore overall complexity = O(N) * O(N) = O(N*N) = O(N2)
